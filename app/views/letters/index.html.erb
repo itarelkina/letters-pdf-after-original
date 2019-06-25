@@ -1,0 +1,6 @@
+<h1>Letters</h1>
+<ul>
+<% @letters.each do |letter| %>
+  <li><%= link_to "Letter \##{letter.letter_number}", letter %></li>
+<% end %>
+</ul>
