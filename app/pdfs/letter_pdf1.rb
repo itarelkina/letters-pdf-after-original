@@ -1,6 +1,6 @@
 class LetterPdf1 < Prawn::Document
   def initialize(letter, view)
-    super(top_margin: 15)
+    super(top_margin:35)
     @letter = letter
     @view = view
     header_line
@@ -11,15 +11,17 @@ class LetterPdf1 < Prawn::Document
     table_salary
     body2
     body3
+    signature
   end
 
-  #image logo
- #pdf.image "#{Rails.root}app/assets/images/logo1.jpg", :width => 10
-  
   def header_line
-  image "##{Rails.root}/app/assets/images/logo1.jpg", ::width => 10
-  text "Your 2019 Compensation Confirmation 1", size: 16, style: :bold
+  y_position = cursor
+  image "#{Rails.root}/app/assets/images/logo1.jpg", :at => [0, y_position]
+  move_down 20
+  text "Your 2019 Compensation Confirmation 1", size: 16, style: :bold, align: :center
+  move_down 10
   text "Personal & Confidential", size: 12, style: :bold, align: :right
+  move_down 10
   end
 
   def letter_number
@@ -29,7 +31,8 @@ class LetterPdf1 < Prawn::Document
 
   # top body part to change name to variable from DB
   def body1
-  text "Dear Name,", size: 12, style: :bold, align: :left
+  text "Dear \##{@letter.letter_number},", size: 12, style: :bold, align: :left
+  move_down 10
   text "Pay for performance is at the core of our compensation philosophy. We reward our people for achieving corporate goals and meeting or exceeding performance expectations. Based on the outcome of your 2018 performance review, your merit increase has been calculated accordingly. Your salary increase calculation is as follows:", size: 12
   end
   
@@ -74,6 +77,17 @@ class LetterPdf1 < Prawn::Document
 
     Thank you for your 2018 contributions. With your continued commitment and alignment to business goals, we look forward to a successful 2019.
     "  
-  image "##{Rails.root}/app/assets/images/logo1.jpg", ::width => 10
+  end
+
+  def signature
+    text "Sincerely,", size: 12, align: :left
+    move_down 10
+    y_position = cursor
+    image "#{Rails.root}/app/assets/images/signature1.jpg", :at => [0, y_position]
+    move_down 40
+    
+    text "John Fuerguson", size: 12, align: :left
+    move_down 10
+    text "President and Chief Executive Officer", size: 12, align: :left
   end
 end
