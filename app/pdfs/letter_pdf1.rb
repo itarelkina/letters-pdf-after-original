@@ -6,7 +6,7 @@ class LetterPdf1 < Prawn::Document
     header_line
     body1
     letter_number
-    line_items
+    record
     total_price
     table_salary
     body2
@@ -37,7 +37,7 @@ class LetterPdf1 < Prawn::Document
   end
   
   def table_salary
-
+## to be designed yet
   end
 
   def body2
@@ -47,9 +47,9 @@ class LetterPdf1 < Prawn::Document
     Based on your position at the end of 2018, your 2018 Target AIP is 15.00% of your annual salary. If you were in more than one AIP eligible position in 2018, your final payout will be prorated based on time spent in each position. Your AIP has two components, a personal component and a corporate component and your calculation is as follows:
     "
   end
-  def line_items
+  def record
     move_down 14
-    table line_item_rows do
+    table record_rows do
       row(0).font_style = :bold
       columns(1..3).align = :right
       self.row_colors = ["DDDDDD", "FFFFFF"]
@@ -57,9 +57,9 @@ class LetterPdf1 < Prawn::Document
     end
   end
 
-  def line_item_rows
+  def record_rows
     [["AIP", "Qty", "Unit value", "Total Value"]] +
-    @letter.line_items.map do |item|
+    @letter.records.map do |item|
       [item.name, item.quantity, price(item.unit_price), price(item.full_price)]
     end
   end
@@ -86,7 +86,7 @@ class LetterPdf1 < Prawn::Document
     image "#{Rails.root}/app/assets/images/signature1.jpg", :at => [0, y_position]
     move_down 40
     
-    text "John Fuerguson", size: 12, align: :left
+    text "John Ferguson", size: 12, align: :left
     move_down 10
     text "President and Chief Executive Officer", size: 12, align: :left
   end

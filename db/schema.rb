@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_093513) do
+ActiveRecord::Schema.define(version: 2019_06_25_220808) do
 
   create_table "letters", force: :cascade do |t|
     t.string "letter_number"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_093513) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "line_items", force: :cascade do |t|
+  create_table "records", force: :cascade do |t|
     t.integer "letter_id"
     t.string "name"
     t.decimal "unit_price"
@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 2019_06_25_093513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "template"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "order_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

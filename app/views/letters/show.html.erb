@@ -1,22 +1,22 @@
 <h1>Letter #<%= @letter.letter_number %></h1>
 
-<table id="line_items">
+<table id="records">
   <tr>
-    <th>Bonus</th>
+    <th>AIP </th>
     <th>Qty</th>
-    <th class="price">Unit Value</th>
-    <th class="price">Total Value</th>
+    <th class="price">Unit Price</th>
+    <th class="price">Full Price</th>
   </tr>
-  <% @letter.line_items.each do |line_item| %>
+  <% @letter.records.each do |record| %>
     <tr class="<%= cycle :odd, :even %>">
-      <td><%= line_item.name %></td>
-      <td class="qty"><%= line_item.quantity %></td>
-      <td class="value"><%= number_to_currency(line_item.unit_price) %></td>
-      <td class="value"><%= number_to_currency(line_item.full_price) %></td>
+      <td><%= record.name %></td>
+      <td class="qty"><%= record.quantity %></td>
+      <td class="price"><%= number_to_currency(record.unit_price) %></td>
+      <td class="price"><%= number_to_currency(record.full_price) %></td>
     </tr>
   <% end %>
   <tr>
-    <td class="total value" colspan="4">
+    <td class="total price" colspan="4">
       Total: <%= number_to_currency @letter.total_price %>
     </td>
   </tr>
