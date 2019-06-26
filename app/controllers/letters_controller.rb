@@ -10,7 +10,7 @@ class LettersController < ApplicationController
         format.html
         format.xml {render:xml => @orders}
         format.pdf do
-          pdf = LetterPdf1.new(@letter, view_context)
+          pdf = Aip1.new(@letter, view_context)
           send_data pdf.render, filename: "Letter_#{@letter.letter_number}.pdf",
                                 type: "application/pdf",
                                 disposition: "download"

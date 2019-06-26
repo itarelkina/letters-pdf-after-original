@@ -1,4 +1,4 @@
-class LetterPdf1 < Prawn::Document
+class Aip1 < Prawn::Document
   def initialize(letter, view)
     super(top_margin:35)
     @letter = letter

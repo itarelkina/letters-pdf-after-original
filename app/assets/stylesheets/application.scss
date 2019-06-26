@@ -5,6 +5,19 @@
  *= require_self
  *= require_tree . 
 */
+.navbar {
+  background: image_url('nice_snow.png');
+  box-shadow: 0px 0px 15px #000;
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.navbar-brand {
+color: #f44242;
+font-weight: 900;
+letter-spacing: 1px;
+font-size: 30px;
+}
 
 body {
   background-color: #4B7399;
