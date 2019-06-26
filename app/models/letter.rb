@@ -1,4 +1,5 @@
 class Letter < ActiveRecord::Base
+  belongs_to :user
   has_many :records
 
   def total_price

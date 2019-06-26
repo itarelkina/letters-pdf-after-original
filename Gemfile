@@ -12,6 +12,7 @@ gem 'prawn-rails'
 gem 'csv'
 gem 'roo'
 gem 'iconv'
+gem 'devise'
 
 
 # Use postgresql as the database for Active Record

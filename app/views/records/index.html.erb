@@ -1,11 +1,23 @@
-<h1>Records</h1>
-
 <p>
   Download:
   <%= link_to "CSV", records_path(format: "csv") %> |
   <%= link_to "Excel", records_path(format: "xls") %>
 </p>
-
+<h2>Import Records</h2>
+<p>
+<table><th>Steps:</th>
+<td>1. Prepare CSV file with records.</td>
+<td>2. Click "Choose File".</td>
+<td>3. Click "Import"</td>
+</table>
+</p>
+<p>
+<%= form_tag import_records_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+</p>
+<h1>Records</h1>
 <table id="records">
   <tr>
     <th>name</th>
@@ -24,10 +36,5 @@
 <% end %>
 </table>
 
-<h2>Import Records</h2>
 
-<%= form_tag import_records_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 

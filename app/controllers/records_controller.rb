@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
     def index
       @records = Record.order(:name)
       respond_to do |format|
@@ -6,10 +7,6 @@ class RecordsController < ApplicationController
       format.csv { send_data @records.to_csv }
       #   #format.xls # { send_data @products.to_csv(col_sep: "\t") }
       end
-    end
-    
-    def show
-
     end
 
     def import

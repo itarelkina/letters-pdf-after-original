@@ -1,5 +1,6 @@
 class Record < ActiveRecord::Base
-belongs_to :letter    
+belongs_to :letter
+belongs_to :user
 #attr_accessible :name, :price, :released_on
 
 #validates_presence_of :price

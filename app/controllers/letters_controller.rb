@@ -1,4 +1,5 @@
 class LettersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
     def index
         @letters = Letter.all
     end
