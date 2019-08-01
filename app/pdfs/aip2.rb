@@ -60,7 +60,7 @@ class Aip2 < Prawn::Document
   def record_rows
     [["AIP", "Qty", "Unit value", "Total Value"]] +
     @letter.records.map do |item|
-      [item.name, item.quantity, price(item.unit_price), price(item.full_price)]
+      [item.name, item.quantity, price(item.unit_value), price(item.full_price)]
     end
   end
   

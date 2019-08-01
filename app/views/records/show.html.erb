@@ -1,4 +1,4 @@
-<h1>Letter #<%= @letter.letter_number %></h1>
+<h1>Record #<%= @record.id %></h1>
 
 <table id="records">
   <tr>
@@ -21,5 +21,3 @@
     </td>
   </tr>
 </table>
-
-<p><%= link_to "Printable Letter (PDF)", letter_path(@letter, format: "pdf") %></p>

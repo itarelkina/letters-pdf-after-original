@@ -2,10 +2,11 @@ class Record < ActiveRecord::Base
 belongs_to :letter
 belongs_to :user
 #attr_accessible :name, :price, :released_on
-
-#validates_presence_of :price
+validates :name, presence: true
+validates :unit_value, presence: true
+validates :template, presence: true
 def full_price
-    unit_price*quantity
+    unit_value*quantity
 end
 
 def self.to_csv(options = {})
